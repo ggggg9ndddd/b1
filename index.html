@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دَرِّسني | خطة مذاكرتك الذكية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">د</span> دَرِّسني</a>
+      <nav aria-label="القائمة الرئيسية">
+        <a class="nav-item active" href="#dashboard"><span>▦</span> لوحة التحكم</a>
+        <a class="nav-item" href="#plan"><span>▣</span> خطتي الأسبوعية</a>
+        <a class="nav-item" href="#subjects"><span>◈</span> المواد الدراسية</a>
+        <a class="nav-item" href="#goals"><span>◎</span> أهدافي</a>
+      </nav>
+      <div class="study-tip">
+        <span>✦ نصيحة اليوم</span>
+        <p>خذ استراحة قصيرة كل 50 دقيقة ليستعيد ذهنك تركيزه.</p>
+      </div>
+      <button class="profile"><span class="avatar">س</span><span><strong>سارة أحمد</strong><small>طالبة مجتهدة</small></span><b>⌄</b></button>
+    </aside>
 
+    <section class="content" id="dashboard">
+      <header class="topbar">
+        <div><p class="eyebrow">الأحد، 9 أغسطس</p><h1>صباح الخير يا سارة <span>👋</span></h1><p class="subheading">لننجز خطوة جديدة نحو أهدافك اليوم.</p></div>
+        <div class="header-actions"><button class="icon-button" aria-label="التنبيهات">♧<i></i></button><button class="add-button" id="openModal">+ إضافة مهمة</button></div>
+      </header>
+
+      <section class="stats" aria-label="إحصاءات اليوم">
+        <article><span class="stat-icon purple">◷</span><div><small>وقت المذاكرة اليوم</small><strong id="studyTime">3 س 20 د</strong><em>↑ 20% عن الأمس</em></div></article>
+        <article><span class="stat-icon orange">✓</span><div><small>المهام المنجزة</small><strong><span id="doneCount">2</span> من <span id="totalCount">5</span></strong><em>أحسنتِ، استمري!</em></div></article>
+        <article><span class="stat-icon blue">◉</span><div><small>متوسط الإنجاز</small><strong id="progressPercent">40%</strong><em>هذا الأسبوع</em></div></article>
+      </section>
+
+      <section class="grid-layout">
+        <div class="main-column">
+          <div class="section-heading"><div><h2>مهام اليوم</h2><p>الأحد، 9 أغسطس</p></div><button class="text-button" id="clearDone">مسح المكتمل</button></div>
+          <div class="task-list" id="taskList"></div>
+
+          <section class="weekly-card" id="plan">
+            <div class="section-heading"><div><h2>خطة الأسبوع</h2><p>9 - 15 أغسطس</p></div><button class="text-button">عرض الجدول ←</button></div>
+            <div class="week" id="weekDays"></div>
+          </section>
+        </div>
+
+        <aside class="right-column">
+          <section class="progress-card">
+            <h2>تقدمك هذا الأسبوع</h2>
+            <div class="chart-wrap"><div class="ring"><span id="ringProgress">68<small>%</small></span></div><div><strong>مستوى رائع!</strong><p>أنجزتِ 8 من 12 مهمة</p></div></div>
+            <div class="mini-progress"><span>إجمالي التقدم</span><b>68%</b><div><i></i></div></div>
+          </section>
+          <section class="subjects-card" id="subjects"><div class="section-heading"><h2>المواد الدراسية</h2><button class="text-button">إدارة</button></div>
+            <div class="subject"><span class="subject-icon math">∑</span><div><strong>الرياضيات</strong><small>4 مهام متبقية</small></div><b>75%</b></div>
+            <div class="subject"><span class="subject-icon science">⚗</span><div><strong>الفيزياء</strong><small>3 مهام متبقية</small></div><b>60%</b></div>
+            <div class="subject"><span class="subject-icon arabic">أ</span><div><strong>اللغة العربية</strong><small>مهمة واحدة متبقية</small></div><b>90%</b></div>
+          </section>
+        </aside>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <form class="modal" id="taskForm"><button type="button" class="close" id="closeModal">×</button><h2>إضافة مهمة جديدة</h2>
+      <label>اسم المهمة<input required id="taskTitle" placeholder="مثال: حل تمارين الرياضيات" /></label>
+      <label>المادة<select id="taskSubject"><option>الرياضيات</option><option>الفيزياء</option><option>اللغة العربية</option><option>اللغة الإنجليزية</option></select></label>
+      <label>وقت المهمة<input id="taskTime" type="time" value="16:00" /></label>
+      <button class="add-button" type="submit">إضافة إلى مهام اليوم</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
